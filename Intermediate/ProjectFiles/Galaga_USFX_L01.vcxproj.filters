@@ -3,7 +3,7 @@
   <ItemGroup>
     <None Include="..\..\Galaga_USFX_L01.uproject" />
     <Filter Include="Source">
-      <UniqueIdentifier>{FBDB470E-7801-4138-BAD8-BC8E1B5124C6}</UniqueIdentifier>
+      <UniqueIdentifier>{BE1CFAA1-CBE7-4891-98E5-E95746EA0596}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\Galaga_USFX_L01.Target.cs">
       <Filter>Source</Filter>
@@ -14,7 +14,7 @@
     <None Include="..\..\.gitattributes" />
     <None Include="..\..\.gitignore" />
     <Filter Include="Config">
-      <UniqueIdentifier>{10A682D1-B439-4CDE-BC9C-3783A3699B72}</UniqueIdentifier>
+      <UniqueIdentifier>{5FA0D72C-3CA0-4764-B195-8A233086D8EC}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Config\DefaultEditor.ini">
       <Filter>Config</Filter>
@@ -32,7 +32,7 @@
       <Filter>Config</Filter>
     </None>
     <Filter Include="Source\Galaga_USFX_L01">
-      <UniqueIdentifier>{7275606E-8BA3-4536-A0A2-BEEC3CE2132B}</UniqueIdentifier>
+      <UniqueIdentifier>{3A439091-6DC4-4F13-969C-A00CF289306D}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\Galaga_USFX_L01\Galaga_USFX_L01.Build.cs">
       <Filter>Source\Galaga_USFX_L01</Filter>
@@ -71,6 +71,24 @@
       <Filter>Source\Galaga_USFX_L01</Filter>
     </ClCompile>
     <ClInclude Include="..\..\Source\Galaga_USFX_L01\NaveEnemigaCaza.h">
+      <Filter>Source\Galaga_USFX_L01</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\Galaga_USFX_L01\NaveEnemigaEspia.cpp">
+      <Filter>Source\Galaga_USFX_L01</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Galaga_USFX_L01\NaveEnemigaEspia.h">
+      <Filter>Source\Galaga_USFX_L01</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\Galaga_USFX_L01\NaveEnemigaNodriza.cpp">
+      <Filter>Source\Galaga_USFX_L01</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Galaga_USFX_L01\NaveEnemigaNodriza.h">
+      <Filter>Source\Galaga_USFX_L01</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\Galaga_USFX_L01\NaveEnemigaReabastecimiento.cpp">
+      <Filter>Source\Galaga_USFX_L01</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Galaga_USFX_L01\NaveEnemigaReabastecimiento.h">
       <Filter>Source\Galaga_USFX_L01</Filter>
     </ClInclude>
     <ClCompile Include="..\..\Source\Galaga_USFX_L01\NaveEnemigaTransporte.cpp">

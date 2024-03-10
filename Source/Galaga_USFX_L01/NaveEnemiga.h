@@ -6,7 +6,7 @@
 #include "GameFramework/Actor.h"
 #include "NaveEnemiga.generated.h"
 
-UCLASS()
+UCLASS(abstract)
 class GALAGA_USFX_L01_API ANaveEnemiga : public AActor
 {
 	GENERATED_BODY()
@@ -16,7 +16,7 @@ public:
 	UStaticMeshComponent* mallaNaveEnemiga;
 
 protected:
-	
+
 	float velocidad;
 	float resistencia; //Numero de disparos que puede recibir antes de ser destruido
 	FString nombre;
@@ -72,8 +72,12 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
-public:	
+public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
+protected:
+	//virtual void Mover() = 0;
+	void Mover() PURE_VIRTUAL(ANaveEnemiga::Mover, );
+	void Disparar() PURE_VIRTUAL(ANaveEnemiga::Disparar, );
 };
