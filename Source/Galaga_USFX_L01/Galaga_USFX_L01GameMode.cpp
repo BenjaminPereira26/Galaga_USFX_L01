@@ -6,6 +6,7 @@
 #include "NaveEnemigaTransporte.h"
 #include "NaveEnemigaCaza.h"
 #include "NaveEnemigaEspia.h"
+#include "NaveEnemigaCazaNieta01.h"
 
 AGalaga_USFX_L01GameMode::AGalaga_USFX_L01GameMode()
 {
@@ -36,5 +37,5 @@ void AGalaga_USFX_L01GameMode::BeginPlay()
 
 	NaveEnemigaCaza01->SetPosicion(FVector(-500.0f, 500.0f, 200.0f));
 	NaveEnemigaTransporte01->SetPosicion(FVector(500.0f, -500.0f, 200.0f));
-
+	NaveEnemigaCazaNieta01->SetPosicion(FVector(500.0f, -500.0f, 200.0f));
 }
