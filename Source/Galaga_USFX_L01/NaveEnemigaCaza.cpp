@@ -22,3 +22,7 @@ void ANaveEnemigaCaza::Disparar()
 void ANaveEnemigaCaza::Destruirse()
 {
 }
+
+void ANaveEnemigaCaza::Recargar()
+{
+}

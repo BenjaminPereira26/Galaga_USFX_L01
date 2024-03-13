@@ -14,14 +14,15 @@ class GALAGA_USFX_L01_API ANaveEnemigaEspia : public ANaveEnemiga
 {
 	GENERATED_BODY()
 private:
-	int cantidadBombas;
+	int energiaCamuflaje;
 
 public:
 	ANaveEnemigaEspia();
-	FORCEINLINE int GetCantidadBombas() const { return cantidadBombas; }
-	FORCEINLINE void SetCantidadBombas(int _cantidadBombas) { cantidadBombas = _cantidadBombas; }
+	FORCEINLINE int GetEnergiaCamuflaje() const { return energiaCamuflaje; }
+	FORCEINLINE void SetEnergiaCamuflaje(int _energiaCamuflaje) { energiaCamuflaje = _energiaCamuflaje; }
 protected:
 	virtual void Mover();
 	virtual void Disparar();
 	virtual void Destruirse();
+	virtual void Esconderse();
 };

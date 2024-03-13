@@ -20,3 +20,7 @@ void ANaveEnemigaEspia::Disparar()
 void ANaveEnemigaEspia::Destruirse()
 {
 }
+
+void ANaveEnemigaEspia::Esconderse()
+{
+}

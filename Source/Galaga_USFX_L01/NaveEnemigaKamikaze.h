@@ -13,5 +13,15 @@ UCLASS()
 class GALAGA_USFX_L01_API ANaveEnemigaKamikaze : public ANaveEnemiga
 {
 	GENERATED_BODY()
-	
+private:
+	int tiempoSuicidio;
+
+public:
+	ANaveEnemigaKamikaze();
+	FORCEINLINE int GetTiempoSuicidio() const { return tiempoSuicidio; }
+	FORCEINLINE void SetTiempoSuicidio(int _tiempoSuicidio) { tiempoSuicidio = _tiempoSuicidio; }
+protected:
+	virtual void Mover();
+	virtual void Destruirse();
+	virtual void CaidaLibre();
 };
