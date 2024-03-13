@@ -80,4 +80,5 @@ protected:
 	//virtual void Mover() = 0;
 	void Mover() PURE_VIRTUAL(ANaveEnemiga::Mover, );
 	void Disparar() PURE_VIRTUAL(ANaveEnemiga::Disparar, );
+	void Destruirse() PURE_VIRTUAL(ANaveEnemiga::Destruirse, );
 };
