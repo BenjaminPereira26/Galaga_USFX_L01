@@ -13,5 +13,17 @@ UCLASS()
 class GALAGA_USFX_L01_API ANaveEnemigaReabastecimiento : public ANaveEnemiga
 {
 	GENERATED_BODY()
+private:
+	int cantEnergia;
+
+public:
+	ANaveEnemigaReabastecimiento();
+	FORCEINLINE int GetCantEnergia() const { return cantEnergia; }
 	
+	FORCEINLINE void SetCantEnergia(int _cantEnergia) { cantEnergia = _cantEnergia; }
+
+protected:
+	virtual void Mover();
+	virtual void Destruirse();
+	virtual void DistribuirEnemiga();
 };

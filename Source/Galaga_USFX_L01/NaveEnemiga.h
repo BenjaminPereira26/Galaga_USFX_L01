@@ -85,4 +85,5 @@ protected:
 	void Recargar() PURE_VIRTUAL(ANaveEnemiga::Recargar, );
 	void CaidaLibre() PURE_VIRTUAL(ANaveEnemiga::CaidaLibre, );
 	void Desplegar() PURE_VIRTUAL(ANaveEnemiga::Desplegar, );
+	void DistribuirEnergia() PURE_VIRTUAL(ANaveEnemiga::DistribuirEnergia, );
 };
