@@ -187,5 +187,6 @@
     <ClInclude Include="..\..\Source\Galaga_USFX_L01\Vidas.h">
       <Filter>Source\Galaga_USFX_L01</Filter>
     </ClInclude>
+    <None Include="cpp.hint" />
   </ItemGroup>
 </Project>
