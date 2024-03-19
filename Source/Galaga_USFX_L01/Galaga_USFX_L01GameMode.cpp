@@ -5,6 +5,7 @@
 #include "NaveEnemiga.h"
 #include "NaveEnemigaTransporte.h"
 #include "NaveEnemigaCaza.h"
+#include "NaveEnemigaEspia.h"
 #include "NaveEnemigaKamikaze.h"
 
 AGalaga_USFX_L01GameMode::AGalaga_USFX_L01GameMode()
@@ -12,48 +13,66 @@ AGalaga_USFX_L01GameMode::AGalaga_USFX_L01GameMode()
 	// set default pawn class to our character class
 	PrimaryActorTick.bCanEverTick = true;
 	DefaultPawnClass = AGalaga_USFX_L01Pawn::StaticClass();
-
-	//NaveEnemiga01 = nullptr;
 }
 
 void AGalaga_USFX_L01GameMode::BeginPlay()
 {
 	Super::BeginPlay();
 
-	const int32 NumeroDeColumnas = 5; // Número de columnas
-	const int32 NumeroDeFilas = 5;    // Número de filas
+	const int32 NumeroDeColumnasCaza = 2; // N° Columnas
+	const int32 NumeroDeFilasCaza = 5;    // N° Filas
 
-	// Generar naves enemigas caza y agregarlas al TMap en las columnas correspondientes
-	for (int32 Columna = 0; Columna < NumeroDeColumnas; ++Columna)
+	// Generar cierto tipo de naves enemigas en una matriz de columnas y filas
+	for (int32 Columna = 0; Columna < NumeroDeColumnasCaza; ++Columna)
 	{
 		TArray<ANaveEnemigaCaza*> NavesEnColumna;
-		for (int32 Fila = 0; Fila < NumeroDeFilas; ++Fila)
+		for (int32 Fila = 0; Fila < NumeroDeFilasCaza; ++Fila)
 		{
-			// Definir la ubicación y rotación de la nave enemiga
-			FVector SpawnLocation = FVector(Columna * 200.0f, Fila * 200.0f, 350.0f); // Ejemplo de ubicación de generación
-			FRotator SpawnRotation = FRotator::ZeroRotator; // Rotación inicial
+			// Definir los vectores de posición y rotación
+			FVector SpawningLocation = FVector(Columna * 300 + 300.0f, Fila * 200 + 200.0f, 250.0f); // Posicion inicial de la nave desde la cual se escalan las demás
+			FRotator SpawningRotation = FRotator::ZeroRotator; // Rotación inicial (nula)
 
-			// Generar la nave enemiga caza y agregarla al TArray
-			ANaveEnemigaCaza* NuevaNaveCaza = GetWorld()->SpawnActor<ANaveEnemigaCaza>(SpawnLocation, SpawnRotation);
-			if (NuevaNaveCaza)
-			{
-				// Configurar la lógica de la nave enemiga caza si es necesario
-
-			}
-			else
-			{
-				// Ocurrió un error al crear la nave enemiga caza
-				UE_LOG(LogTemp, Error, TEXT("No se pudo crear la nave enemiga caza."));
-			}
-
+			// Nave spawneada en el mundo y siendo incluida en el TArray
+			ANaveEnemigaCaza* NuevaNaveCaza = GetWorld()->SpawnActor<ANaveEnemigaCaza>(SpawningLocation, SpawningRotation);
 			NavesEnColumna.Add(NuevaNaveCaza);
 		}
-
 		// Agregar el TArray al TMap
 		ColumnaNavesEnemigasCaza.Add(Columna, NavesEnColumna);
 	}
 
+	const int32 NumeroDeColumnasEspia = 2; 
+	const int32 NumeroDeFilasEspia = 5;    
 
+	for (int32 Columna = 0; Columna < NumeroDeColumnasEspia; ++Columna)
+	{
+		TArray<ANaveEnemigaEspia*> NavesEnColumna;
+		for (int32 Fila = 0; Fila < NumeroDeFilasEspia; ++Fila)
+		{
+			FVector SpawningLocation = FVector(Columna * 300 + 900.0f, Fila * 200 + 200.0f, 250.0f);
+			FRotator SpawningRotation = FRotator::ZeroRotator;
+
+			ANaveEnemigaEspia* NuevaNaveEspia = GetWorld()->SpawnActor<ANaveEnemigaEspia>(SpawningLocation, SpawningRotation);
+			NavesEnColumna.Add(NuevaNaveEspia);
+		}
+		ColumnaNavesEnemigasEspia.Add(Columna, NavesEnColumna);
+	}
+
+	const int32 NumeroDeColumnasKamikaze = 2;
+	const int32 NumeroDeFilasKamikaze = 5;
+
+	for (int32 Columna = 0; Columna < NumeroDeColumnasKamikaze; ++Columna)
+	{
+		TArray<ANaveEnemigaKamikaze*> NavesEnColumna;
+		for (int32 Fila = 0; Fila < NumeroDeFilasEspia; ++Fila)
+		{
+			FVector SpawningLocation = FVector(Columna * 300 + 1500.0f, Fila * 200 + 200.0f, 250.0f);
+			FRotator SpawningRotation = FRotator::ZeroRotator;
+
+			ANaveEnemigaKamikaze* NuevaNaveKamikaze = GetWorld()->SpawnActor<ANaveEnemigaKamikaze>(SpawningLocation, SpawningRotation);
+			NavesEnColumna.Add(NuevaNaveKamikaze);
+		}
+		ColumnaNavesEnemigasKamikaze.Add(Columna, NavesEnColumna);
+	}
 }
 
 

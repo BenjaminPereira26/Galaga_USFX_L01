@@ -7,9 +7,12 @@
 #include "Galaga_USFX_L01GameMode.generated.h"
 
 class ANaveEnemiga;
-class ANaveEnemigaTransporte;
 class ANaveEnemigaCaza;
+class ANaveEnemigaEspia;
 class ANaveEnemigaKamikaze;
+class ANaveEnemigaNodriza;
+class ANaveEnemigaReabastecimiento;
+class ANaveEnemigaTransporte;
 
 UCLASS(MinimalAPI)
 class AGalaga_USFX_L01GameMode : public AGameModeBase
@@ -19,10 +22,6 @@ class AGalaga_USFX_L01GameMode : public AGameModeBase
 public:
 	AGalaga_USFX_L01GameMode();
 
-public:
-	//ANaveEnemiga* NaveEnemiga01;
-	ANaveEnemigaTransporte* NaveEnemigaTransporte01;
-	ANaveEnemigaCaza* NaveEnemigaCaza01;
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
@@ -30,19 +29,24 @@ protected:
 public:
 	TArray<ANaveEnemiga*> TANavesEnemigas;
 	TArray<ANaveEnemigaCaza*> TANavesEnemigasCaza;
-	TArray<ANaveEnemigaTransporte*> TANavesEnemigasTransporte;
+	TArray<ANaveEnemigaEspia*> TANavesEnemigasEspia;
 	TArray<ANaveEnemigaKamikaze*> TANavesEnemigasKamikaze;
-
+	TArray<ANaveEnemigaNodriza*> TANavesEnemigasNodriza;
+	TArray<ANaveEnemigaReabastecimiento*> TANavesEnemigasReabastecimiento;
+	TArray<ANaveEnemigaTransporte*> TANavesEnemigasTransporte;
 private:
 	int TiempoTranscurrido;
 
 public:
-	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
 public:
-	// Declaración del TMap
+	// Inicialización del TMap
 	TMap<int32, TArray<ANaveEnemigaCaza*>> ColumnaNavesEnemigasCaza;
-	//Clave int 32, valor array de naves enemigas
+	TMap<int32, TArray<ANaveEnemigaEspia*>> ColumnaNavesEnemigasEspia;
+	TMap<int32, TArray<ANaveEnemigaKamikaze*>> ColumnaNavesEnemigasKamikaze;
+	TMap<int32, TArray<ANaveEnemigaNodriza*>> ColumnaNavesEnemigasNodriza;
+	TMap<int32, TArray<ANaveEnemigaReabastecimiento*>> ColumnaNavesEnemigasReabastecimiento;
+	TMap<int32, TArray<ANaveEnemigaTransporte*>> ColumnaNavesEnemigasTransporte;
 
 };
