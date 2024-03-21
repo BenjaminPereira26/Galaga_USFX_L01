@@ -29,7 +29,9 @@ public:
 	FORCEINLINE void SetNumSoldDespliegue(int _numSoldDespliegue) { numSoldDespliegue = _numSoldDespliegue; }
 
 protected:
-	virtual void Mover();
+	virtual void Mover(float DeltaTime);
 	virtual void Destruirse();
 	virtual void Desplegar();
+public:
+	virtual void Tick(float DeltaTime) override;
 };

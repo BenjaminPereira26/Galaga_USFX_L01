@@ -23,7 +23,9 @@ public:
 	FORCEINLINE void SetCantEnergia(int _cantEnergia) { cantEnergia = _cantEnergia; }
 
 protected:
-	virtual void Mover();
+	virtual void Mover(float DeltaTime);
 	virtual void Destruirse();
 	virtual void DistribuirEnemiga();
+public:
+	virtual void Tick(float DeltaTime) override;
 };

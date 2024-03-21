@@ -10,9 +10,19 @@ ANaveEnemigaCaza::ANaveEnemigaCaza()
 
 }
 
-void ANaveEnemigaCaza::Mover()
+void ANaveEnemigaCaza::Mover(float DeltaTime)
 {
+	FVector PosicionActual = GetActorLocation();
+	FVector NuevaPosicion = FVector(PosicionActual.X - 100 * DeltaTime * velocidad, PosicionActual.Y, PosicionActual.Z);
 
+	SetActorLocation(NuevaPosicion);
+
+
+	if (NuevaPosicion.X < limiteX) {
+
+		SetActorLocation(FVector(1500.0f, PosicionActual.Y, PosicionActual.Z));
+
+	}
 }
 
 void ANaveEnemigaCaza::Disparar()
@@ -25,4 +35,10 @@ void ANaveEnemigaCaza::Destruirse()
 
 void ANaveEnemigaCaza::Recargar()
 {
+}
+
+void ANaveEnemigaCaza::Tick(float DeltaTime)
+{
+	Super::Tick(DeltaTime);
+	Mover(DeltaTime);
 }

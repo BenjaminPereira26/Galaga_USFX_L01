@@ -9,8 +9,19 @@ ANaveEnemigaKamikaze::ANaveEnemigaKamikaze()
 	mallaNaveEnemiga->SetStaticMesh(ShipMesh.Object);
 }
 
-void ANaveEnemigaKamikaze::Mover()
+void ANaveEnemigaKamikaze::Mover(float DeltaTime)
 {
+	FVector PosicionActual = GetActorLocation();
+	FVector NuevaPosicion = FVector(PosicionActual.X - 100 * DeltaTime * velocidad, PosicionActual.Y, PosicionActual.Z);
+
+	SetActorLocation(NuevaPosicion);
+
+
+	if (NuevaPosicion.X < limiteX) {
+
+		SetActorLocation(FVector(1500.0f, PosicionActual.Y, PosicionActual.Z));
+
+	}
 }
 
 void ANaveEnemigaKamikaze::Destruirse()
@@ -19,4 +30,10 @@ void ANaveEnemigaKamikaze::Destruirse()
 
 void ANaveEnemigaKamikaze::CaidaLibre()
 {
+}
+
+void ANaveEnemigaKamikaze::Tick(float DeltaTime)
+{
+	Super::Tick(DeltaTime);
+	Mover(DeltaTime);
 }

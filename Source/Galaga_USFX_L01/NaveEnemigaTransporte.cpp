@@ -10,8 +10,19 @@ ANaveEnemigaTransporte::ANaveEnemigaTransporte()
 
 }
 
-void ANaveEnemigaTransporte::Mover()
+void ANaveEnemigaTransporte::Mover(float DeltaTime)
 {
+	FVector PosicionActual = GetActorLocation();
+	FVector NuevaPosicion = FVector(PosicionActual.X - 100 * DeltaTime * velocidad, PosicionActual.Y, PosicionActual.Z);
+
+	SetActorLocation(NuevaPosicion);
+
+
+	if (NuevaPosicion.X < limiteX) {
+
+		SetActorLocation(FVector(1500.0f, PosicionActual.Y, PosicionActual.Z));
+
+	}
 }
 
 void ANaveEnemigaTransporte::Disparar()
@@ -20,4 +31,10 @@ void ANaveEnemigaTransporte::Disparar()
 
 void ANaveEnemigaTransporte::Destruirse()
 {
+}
+
+void ANaveEnemigaTransporte::Tick(float DeltaTime)
+{
+	Super::Tick(DeltaTime);
+	Mover(DeltaTime);
 }

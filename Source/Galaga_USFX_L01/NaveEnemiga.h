@@ -32,6 +32,8 @@ protected:
 
 	float peso;
 	float volumen;
+	float limiteZ;
+	float limiteX;
 
 public:
 	FORCEINLINE float GetVelocidad() const { return velocidad; }
@@ -78,7 +80,7 @@ public:
 
 protected:
 	//virtual void Mover() = 0;
-	void Mover() PURE_VIRTUAL(ANaveEnemiga::Mover, );
+	void Mover(float DeltaTime) PURE_VIRTUAL(ANaveEnemiga::Mover, );
 	void Disparar() PURE_VIRTUAL(ANaveEnemiga::Disparar, );
 	void Destruirse() PURE_VIRTUAL(ANaveEnemiga::Destruirse, );
 	void Esconderse() PURE_VIRTUAL(ANaveEnemiga::Esconderse, );

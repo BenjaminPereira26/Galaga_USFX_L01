@@ -21,7 +21,9 @@ public:
 	FORCEINLINE int GetTiempoSuicidio() const { return tiempoSuicidio; }
 	FORCEINLINE void SetTiempoSuicidio(int _tiempoSuicidio) { tiempoSuicidio = _tiempoSuicidio; }
 protected:
-	virtual void Mover();
+	virtual void Mover(float DeltaTime);
 	virtual void Destruirse();
 	virtual void CaidaLibre();
+public:
+	virtual void Tick(float DeltaTime) override;
 };

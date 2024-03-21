@@ -21,8 +21,10 @@ public:
 	FORCEINLINE int GetEnergiaCamuflaje() const { return energiaCamuflaje; }
 	FORCEINLINE void SetEnergiaCamuflaje(int _energiaCamuflaje) { energiaCamuflaje = _energiaCamuflaje; }
 protected:
-	virtual void Mover();
+	virtual void Mover(float DeltaTime);
 	virtual void Disparar();
 	virtual void Destruirse();
 	virtual void Esconderse();
+public:
+	virtual void Tick(float DeltaTime) override;
 };

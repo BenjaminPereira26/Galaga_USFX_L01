@@ -9,9 +9,18 @@ ANaveEnemigaReabastecimiento::ANaveEnemigaReabastecimiento()
 	mallaNaveEnemiga->SetStaticMesh(ShipMesh.Object);
 }
 
-void ANaveEnemigaReabastecimiento::Mover()
+void ANaveEnemigaReabastecimiento::Mover(float DeltaTime)
 {
-}
+
+	FVector PosicionActual = GetActorLocation();
+	FVector NuevaPosicion = FVector(PosicionActual.X, PosicionActual.Y, PosicionActual.Z + 50.0f * DeltaTime * velocidad);
+	SetActorLocation(NuevaPosicion);
+	if (NuevaPosicion.Z > limiteZ) {
+		SetActorLocation(FVector(PosicionActual.X, PosicionActual.Y, 250.0f));
+
+	}
+} 
+
 
 void ANaveEnemigaReabastecimiento::Destruirse()
 {
@@ -20,3 +29,9 @@ void ANaveEnemigaReabastecimiento::Destruirse()
 void ANaveEnemigaReabastecimiento::DistribuirEnemiga()
 {
 }
+void ANaveEnemigaReabastecimiento::Tick(float DeltaTime)
+{
+    Super::Tick(DeltaTime);
+	Mover(DeltaTime);
+}
+
