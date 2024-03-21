@@ -103,6 +103,10 @@ void AGalaga_USFX_L01GameMode::BeginPlay()
 
 			ANaveEnemigaCaza* NuevaNaveCaza = GetWorld()->SpawnActor<ANaveEnemigaCaza>(SpawningLocation, SpawningRotation);
 			NavesEnColumna.Add(NuevaNaveCaza);
+			if (Fila == 2)
+			{
+				NuevaNaveCaza->Destroy();
+			}
 		}
 		ColumnaNavesEnemigasCaza.Add(Columna, NavesEnColumna);
 	}
@@ -120,6 +124,10 @@ void AGalaga_USFX_L01GameMode::BeginPlay()
 
 			ANaveEnemigaKamikaze* NuevaNaveKamikaze = GetWorld()->SpawnActor<ANaveEnemigaKamikaze>(SpawningLocation, SpawningRotation);
 			NavesEnColumna.Add(NuevaNaveKamikaze);
+			if (Fila % 2 == 1)
+			{
+				NuevaNaveKamikaze->Destroy();
+			}
 		}
 		ColumnaNavesEnemigasKamikaze.Add(Columna, NavesEnColumna);
 	}
