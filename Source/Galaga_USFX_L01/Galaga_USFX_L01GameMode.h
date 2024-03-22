@@ -13,6 +13,9 @@ class ANaveEnemigaKamikaze;
 class ANaveEnemigaNodriza;
 class ANaveEnemigaReabastecimiento;
 class ANaveEnemigaTransporte;
+class ACapsulaEnergia50pts;
+class ACapsulaEnergia100pts;
+class ACapsulaEnergia200pts;
 
 UCLASS(MinimalAPI)
 class AGalaga_USFX_L01GameMode : public AGameModeBase
@@ -34,6 +37,9 @@ public:
 	TArray<ANaveEnemigaNodriza*> TANavesEnemigasNodriza;
 	TArray<ANaveEnemigaReabastecimiento*> TANavesEnemigasReabastecimiento;
 	TArray<ANaveEnemigaTransporte*> TANavesEnemigasTransporte;
+	TArray<ACapsulaEnergia50pts*> TACapsulasEnergia50pts;
+	TArray<ACapsulaEnergia100pts*> TACapsulasEnergia100pts;
+	TArray<ACapsulaEnergia200pts*> TACapsulasEnergia200pts;
 private:
 	int TiempoTranscurrido;
 
@@ -48,5 +54,8 @@ public:
 	TMap<int32, TArray<ANaveEnemigaNodriza*>> ColumnaNavesEnemigasNodriza;
 	TMap<int32, TArray<ANaveEnemigaReabastecimiento*>> ColumnaNavesEnemigasReabastecimiento;
 	TMap<int32, TArray<ANaveEnemigaTransporte*>> ColumnaNavesEnemigasTransporte;
+	TMap<int32, TArray<ACapsulaEnergia50pts*>> ColumnaCapsulasEnergia50pts;
+	TMap<int32, TArray<ACapsulaEnergia100pts*>> ColumnaCapsulasEnergia100pts;
+	TMap<int32, TArray<ACapsulaEnergia200pts*>> ColumnaCapsulasEnergia200pts;
 
 };
