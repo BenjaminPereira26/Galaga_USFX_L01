@@ -10,6 +10,8 @@ ACapsulaEnergia::ACapsulaEnergia()
 	mallaEnergia = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("TEXT"));
 	mallaEnergia->SetupAttachment(RootComponent);
 	RootComponent = mallaEnergia;
+	velocidad = 2;
+	limiteX = -1600.0f;
 }
 
 // Called when the game starts or when spawned

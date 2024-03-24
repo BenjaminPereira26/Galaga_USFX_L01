@@ -9,6 +9,9 @@
 #include "NaveEnemigaNodriza.h"
 #include "NaveEnemigaReabastecimiento.h"
 #include "NaveEnemigaTransporte.h"
+#include "CapsulaEnergia50pts.h"
+#include "CapsulaEnergia100pts.h"
+#include "CapsulaEnergia200pts.h"
 
 AGalaga_USFX_L01GameMode::AGalaga_USFX_L01GameMode()
 {
@@ -22,6 +25,57 @@ void AGalaga_USFX_L01GameMode::BeginPlay()
 	UWorld* const World = GetWorld();
 	if (World != nullptr)
 	{
+		const int32 NumeroDeColumnasCap50 = 1;
+		const int32 NumeroDeFilasCap50 = 5;
+
+		for (int32 Columna = 0; Columna < NumeroDeColumnasCap50; ++Columna)
+		{
+			TArray<ACapsulaEnergia50pts*> CapsulasEnColumnas;
+			for (int32 Fila = 0; Fila < NumeroDeFilasCap50; ++Fila)
+			{
+				FVector SpawningLocation = FVector(1700.0f, FMath::RandRange(-500.0f, 200.0f) + 100.0f, 250.0f);
+				FRotator SpawningRotation = FRotator::ZeroRotator;
+
+				ACapsulaEnergia50pts* NuevaCapsulaEnergia50 = GetWorld()->SpawnActor<ACapsulaEnergia50pts>(SpawningLocation, SpawningRotation);
+				CapsulasEnColumnas.Add(NuevaCapsulaEnergia50);
+			}
+			ColumnaCapsulasEnergia50pts.Add(Columna, CapsulasEnColumnas);
+		}
+
+		const int32 NumeroDeColumnasCap100 = 1;
+		const int32 NumeroDeFilasCap100 = 3;
+
+		for (int32 Columna = 0; Columna < NumeroDeColumnasCap100; ++Columna)
+		{
+			TArray<ACapsulaEnergia100pts*> CapsulasEnColumnas;
+			for (int32 Fila = 0; Fila < NumeroDeFilasCap100; ++Fila)
+			{
+				FVector SpawningLocation = FVector(1700.0f, FMath::RandRange(-500.0f, 200.0f) + 100.0f, 250.0f);
+				FRotator SpawningRotation = FRotator::ZeroRotator;
+
+				ACapsulaEnergia100pts* NuevaCapsulaEnergia100 = GetWorld()->SpawnActor<ACapsulaEnergia100pts>(SpawningLocation, SpawningRotation);
+				CapsulasEnColumnas.Add(NuevaCapsulaEnergia100);
+			}
+			ColumnaCapsulasEnergia100pts.Add(Columna, CapsulasEnColumnas);
+		}
+	
+		const int32 NumeroDeColumnasCap200 = 1;
+		const int32 NumeroDeFilasCap200 = 1;
+
+		for (int32 Columna = 0; Columna < NumeroDeColumnasCap200; ++Columna)
+		{
+			TArray<ACapsulaEnergia200pts*> CapsulasEnColumnas;
+			for (int32 Fila = 0; Fila < NumeroDeFilasCap200; ++Fila)
+			{
+				FVector SpawningLocation = FVector(1700.0f, FMath::RandRange(-500.0f, 200.0f) + 100.0f, 250.0f);
+				FRotator SpawningRotation = FRotator::ZeroRotator;
+
+				ACapsulaEnergia200pts* NuevaCapsulaEnergia200 = GetWorld()->SpawnActor<ACapsulaEnergia200pts>(SpawningLocation, SpawningRotation);
+				CapsulasEnColumnas.Add(NuevaCapsulaEnergia200);
+			}
+			ColumnaCapsulasEnergia200pts.Add(Columna, CapsulasEnColumnas);
+		}
+
 	const int32 NumeroDeColumnasReabasteimiento = 1;
 	const int32 NumeroDeFilasReabastecimiento = 5;
 

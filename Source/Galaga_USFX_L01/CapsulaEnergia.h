@@ -16,13 +16,16 @@ public:
 protected:
 	float velocidad;
 	int cantEnergia;
+	float limiteX;
 
 public:
 	FORCEINLINE float GetVelocidad() const { return velocidad; }
 	FORCEINLINE float GetCantEnergia() const { return cantEnergia; }
+	FORCEINLINE float GetLimiteX() const { return limiteX; }
 
 	FORCEINLINE void SetVelocidad(float _velocidad) { velocidad = _velocidad; }
 	FORCEINLINE void SetCantEnergia(float _cantEnergia) { cantEnergia = _cantEnergia; }
+	FORCEINLINE void SetLimiteX(float _limiteX) { limiteX = _limiteX; }
 	
 public:	
 	ACapsulaEnergia();
